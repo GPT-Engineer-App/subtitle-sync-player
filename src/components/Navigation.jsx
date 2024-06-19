@@ -12,6 +12,9 @@ function Navigation() {
         <Button as={Link} to="/accessibility-settings" colorScheme="teal" variant="ghost">
           Accessibility Settings
         </Button>
+        <Button as={Link} to="/contact-us" colorScheme="teal" variant="ghost">
+          Contact Us
+        </Button>
       </Flex>
     </Box>
   );
