@@ -71,17 +71,17 @@ const Index = () => {
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4} width="100%">
-        <Input type="file" accept="audio/*" onChange={handleAudioUpload} />
-        <Input type="file" accept=".srt" onChange={handleSubtitleUpload} />
+        <Input type="file" accept="audio/*" onChange={handleAudioUpload} aria-label="Upload audio file" />
+        <Input type="file" accept=".srt" onChange={handleSubtitleUpload} aria-label="Upload subtitle file" />
         {audioUrl && (
           <Box width="100%">
             <ReactPlayer url={audioUrl} playing={playing} onProgress={({ playedSeconds }) => setElapsedTime(playedSeconds)} width="100%" height="50px" />
-            <Button onClick={() => setPlaying(!playing)} leftIcon={playing ? <FaPause /> : <FaPlay />}>
+            <Button onClick={() => setPlaying(!playing)} leftIcon={playing ? <FaPause /> : <FaPlay />} aria-label={playing ? "Pause audio" : "Play audio"}>
               {playing ? "Pause" : "Play"}
             </Button>
           </Box>
         )}
-        <Box padding="4" borderWidth="1px" borderRadius="lg" width="100%" textAlign="center">
+        <Box padding="4" borderWidth="1px" borderRadius="lg" width="100%" textAlign="center" role="status" aria-live="polite">
           <Text fontSize="xl">{currentSubtitle}</Text>
         </Box>
       </VStack>
